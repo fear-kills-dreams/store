@@ -1,27 +1,55 @@
-<!doctype html>
-<html class="no-js" lang="{{ shop.locale }}">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
+  <title>{{ page_title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>{% if template == 'index' %}{{ shop.name }}{% else %}{{ page_title }}{% endif %}</title>
-
   {{ content_for_header }}
-
-  {% comment %}
-    Load your theme stylesheets here
-  {% endcomment %}
-  <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
-
 </head>
+
 <body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/collections">Collections</a></li>
+        <li><a href="/just-in">Just In</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="social-media">
+        <a href="#" class="icon-instagram"></a>
+        <a href="#" class="icon-twitter"></a>
+        <a href="#" class="icon-facebook"></a>
+      </div>
+    </nav>
+  </header>
 
+  <!-- Main Content Section -->
+  <main>
+    {{ content_for_layout }}
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/collections">Collections</a></li>
+        <li><a href="/just-in">Just In</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="social-media">
+      <a href="#" class="icon-instagram"></a>
+      <a href="#" class="icon-twitter"></a>
+      <a href="#" class="icon-facebook"></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   {{ content_for_layout }}
-
-  {% comment %}
-    Load your theme scripts here
-  {% endcomment %}
-  <script src="{{ 'main.js' | asset_url }}"></script>
 
 </body>
 </html>

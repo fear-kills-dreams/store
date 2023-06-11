@@ -1,0 +1,10 @@
+{% include 'header' %}
+
+<section class="cart">
+  <div class="container">
+    <h1>Shopping Cart</h1>
+    <div class="cart-items">
+      {% for item in cart.items %}
+        <div class="cart-item">
+          <img src="{{ item.image | img_url: 'thumb' }}" alt="{{ item.title }}">
+          <div class="

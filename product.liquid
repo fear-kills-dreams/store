@@ -1,0 +1,30 @@
+{% include 'header' %}
+
+<section class="product-page">
+  <div class="container">
+    <div class="product-images">
+      <img src="{{ product.featured_image.src | img_url: 'master' }}" alt="{{ product.title }}">
+      <div class="product-thumbnails">
+        {% for image in product.images %}
+          <img src="{{ image.src | img_url: 'thumb' }}" alt="{{ product.title }}" class="thumbnail">
+        {% endfor %}
+      </div>
+    </div>
+    <div class="product-details">
+      <h1>{{ product.title }}</h1>
+      <p class="price">{{ product.price | money }}</p>
+      <form action="/cart/add" method="post">
+        {% for variant in product.variants %}
+          <input type="radio" id="{{ variant.id }}" name="id" value="{{ variant.id }}">
+          <label for="{{ variant.id }}">{{ variant.title }}</label>
+        {% endfor %}
+        <button type="submit" class="btn">Add to Cart</button>
+      </form>
+      <div class="product-description">
+        {{ product.description }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include 'footer' %}
